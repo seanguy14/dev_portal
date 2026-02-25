@@ -141,8 +141,9 @@ class HomePage extends StatelessWidget {
                   children: [
                     _buildHeroSection(isMobile),
                     // Showcasing your current projects
-                    _buildAppSection("Expense", "Track your Rands effortlessly.", "https://play.google.com/store/apps/dev?id=YOUR_DEV_ID"),
-                    _buildAppSection("Receipt Scanner", "OCR for South African receipts.", "https://play.google.com/store/apps/dev?id=YOUR_DEV_ID"),
+                    _buildAppSection("Expense", "Track your Rands effortlessly.", "https://play.google.com/store/apps/details?id=com.yourcompany.expense", Icons.attach_money),
+                    _buildAppSection("Receipt Scanner", "OCR for South African receipts.", "https://play.google.com/store/apps/details?id=com.yourcompany.receipt_scanner", Icons.document_scanner),
+                    _buildFooter(),
                   ],
                 ),
               ),
@@ -173,13 +174,42 @@ class HomePage extends StatelessWidget {
     );
   }
 
-  Widget _buildAppSection(String title, String desc, String linkStr) {
+  Widget _buildAppSection(String title, String desc, String linkStr, IconData icon) {
     return ListTile(
+      leading: Icon(icon, size: 40, color: Colors.blueGrey),
       contentPadding: const EdgeInsets.all(20),
       title: Text(title, style: const TextStyle(fontWeight: FontWeight.bold)),
       subtitle: Text(desc),
       trailing: const Icon(Icons.open_in_new), // Better icon for external links
       onTap: () => _launchURL(linkStr),
+    );
+  }
+
+  Widget _buildFooter() {
+    return Container(
+      margin: const EdgeInsets.only(top: 40),
+      padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
+      color: Colors.grey.shade100,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          const Text(
+            "Connect with me",
+            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(height: 16),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              TextButton(onPressed: () => _launchURL('https://github.com/your-username'), child: const Text("GitHub")),
+              const Text(" • ", style: TextStyle(color: Colors.grey)),
+              TextButton(onPressed: () => _launchURL('https://linkedin.com/in/your-profile'), child: const Text("LinkedIn")),
+            ],
+          ),
+          const SizedBox(height: 24),
+          const Text('© 2024 ZA Developer. All rights reserved.', style: TextStyle(color: Colors.grey)),
+        ],
+      ),
     );
   }
 }

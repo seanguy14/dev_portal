@@ -25,7 +25,7 @@ void main() {
     await tester.pumpWidget(const DevPortalApp());
 
     // Tap the Privacy Policy button.
-    await tester.tap(find.widgetWithText(TextButton, 'Privacy Policy'));
+    await tester.tap(find.widgetWithText(ElevatedButton, 'Privacy Policy'));
     await tester.pumpAndSettle();
 
     // Verify that the Privacy Policy page content is displayed.

@@ -1,8 +1,8 @@
 @echo off
 echo Building for Web...
 
-REM IMPORTANT: Replace '/dev_portal/' with '/<your-repo-name>/' 
-REM or just '/' if you are using a custom domain.
+REM Set the base-href to your GitHub repository name (e.g. /dev_portal/).
+REM Use "/" if you are using a custom domain.
 call flutter build web --release --base-href "/dev_portal/"
 
 echo Creating 404.html for GitHub Pages...
