@@ -17,7 +17,7 @@ void main() {
 
     // Verify that the portfolio title is present.
     expect(find.text('Dev Portfolio'), findsOneWidget);
-    expect(find.text("Hi, I'm a Flutter Developer"), findsOneWidget);
+    expect(find.text("Flutter Developer in South Africa"), findsOneWidget);
   });
 
   testWidgets('Privacy Policy navigation test', (WidgetTester tester) async {
